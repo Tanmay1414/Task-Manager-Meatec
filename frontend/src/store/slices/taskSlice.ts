@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk, type PayloadAction } from '@reduxjs/tool
 import type { TaskState, Task, CreateTaskRequest, UpdateTaskRequest, ApiResponse } from '../../types';
 import { getToken } from '../../utils/auth';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+const API_BASE_URL = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
 
 const defaultTaskState: TaskState = {
     tasks: [],

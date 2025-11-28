@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk, type PayloadAction } from '@reduxjs/tool
 import type { AuthState, LoginRequest, RegisterRequest, User, ApiResponse, LoginResponse } from '../../types';
 import { saveToken, getToken, removeToken } from '../../utils/auth';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+const API_BASE_URL = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
 
 const loadUserFromStorage = (): User | null => {
     try {

@@ -8,4 +8,13 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://task-manager-meatec.vercel.app',
+        changeOrigin: true,
+        secure: true,
+      },
+    },
+  },
 })
